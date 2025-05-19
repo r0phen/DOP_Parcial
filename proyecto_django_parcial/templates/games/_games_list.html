@@ -1,0 +1,8 @@
+<h2>Juegos Gratis</h2>
+<div class="games-grid">
+    {% for game in games %}
+        {% include 'games/_game_card.html' with game=game %}
+    {% empty %}
+        <p>No hay juegos disponibles con los filtros seleccionados.</p>
+    {% endfor %}
+</div>

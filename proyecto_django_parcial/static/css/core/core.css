@@ -1,0 +1,17 @@
+/* static/css/core/core.css */
+/* ESTILOS PARA LA PÁGINA DE INICIO */
+h2 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+
+.btn {
+    display: block;
+    margin: 0 auto;
+    max-width: 200px;
+    text-align: center;
+}

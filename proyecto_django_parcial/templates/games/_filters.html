@@ -1,0 +1,63 @@
+<div class="filters-container card">
+    <form method="get" class="filters-form">
+        <div class="filter-group">
+            <label for="platform" class="filter-label">Plataforma:</label>
+            <select name="platform" id="platform" class="filter-select">
+                {% for platform in platforms %}
+                    <option value="{{ platform.value }}" {% if current_platform == platform.value %}selected{% endif %}>{{ platform.label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="filter-group">
+            <label for="category" class="filter-label">Categoría:</label>
+            <select name="category" id="category" class="filter-select">
+                {% for category in categories %}
+                    <option value="{{ category.value }}" {% if current_category == category.value %}selected{% endif %}>{{ category.label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="filter-group">
+            <label for="sort_by" class="filter-label">Ordenar por:</label>
+            <select name="sort_by" id="sort_by" class="filter-select">
+                {% for sort_option in sort_options %}
+                    <option value="{{ sort_option.value }}" {% if current_sort == sort_option.value %}selected{% endif %}>{{ sort_option.label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <button type="submit" class="btn">Filtrar</button>
+    </form>
+    
+    {% if current_platform != 'all' or current_category or current_sort != 'release-date' %}
+    <div class="active-filters">
+        {% if current_platform != 'all' %}
+            <span class="filter-tag">
+                Plataforma: {{ current_platform|upper }}
+                <a href="?platform=all{% if current_category %}&category={{ current_category }}{% endif %}{% if current_sort != 'release-date' %}&sort_by={{ current_sort }}{% endif %}" aria-label="Remover filtro">
+                    ×
+                </a>
+            </span>
+        {% endif %}
+        
+        {% if current_category %}
+            <span class="filter-tag">
+                Categoría: {{ current_category|capfirst }}
+                <a href="?{% if current_platform != 'all' %}platform={{ current_platform }}&{% endif %}category={% if current_sort != 'release-date' %}&sort_by={{ current_sort }}{% endif %}" aria-label="Remover filtro">
+                    ×
+                </a>
+            </span>
+        {% endif %}
+        
+        {% if current_sort != 'release-date' %}
+            <span class="filter-tag">
+                Orden: {{ current_sort|capfirst }}
+                <a href="?{% if current_platform != 'all' %}platform={{ current_platform }}&{% endif %}{% if current_category %}category={{ current_category }}&{% endif %}sort_by=release-date" aria-label="Remover filtro">
+                    ×
+                </a>
+            </span>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>

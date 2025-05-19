@@ -1,0 +1,118 @@
+/* static/css/games/filters.css */
+/* ESTILOS ESPECÍFICOS DE FILTROS */
+
+.filters-container {
+    padding: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.filters-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-lg);
+    align-items: flex-end;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-label {
+    margin-bottom: var(--space-sm);
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: var(--text-md);
+    letter-spacing: 0.03em;
+    display: flex;
+    align-items: center;
+}
+
+.filter-label::before {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: var(--accent-orange);
+    border-radius: 3px;
+    margin-right: 8px;
+}
+
+.filter-select {
+    padding: var(--space-md) var(--space-lg);
+    border: 2px solid #E2E8F0;
+    border-radius: var(--border-radius);
+    background-color: white;
+    transition: var(--transition);
+    color: var(--text-dark);
+    font-size: var(--text-sm);
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF6B35' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: var(--accent-orange);
+    box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Filtros activos */
+.active-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+    padding: var(--space-md);
+    background-color: rgba(255, 107, 53, 0.08);
+    border-radius: 14px;
+    border: 2px dashed rgba(255, 107, 53, 0.3);
+}
+
+.filter-tag {
+    display: inline-flex;
+    align-items: center;
+    background-color: white;
+    color: var(--accent-orange);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--border-radius-full);
+    font-size: var(--text-sm);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--accent-orange);
+    font-weight: 500;
+}
+
+.filter-tag a {
+    color: var(--accent-orange);
+    margin-left: var(--space-sm);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 107, 53, 0.1);
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.filter-tag a:hover {
+    background: rgba(255, 107, 53, 0.3);
+    transform: rotate(90deg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .filters-container {
+        padding: var(--space-md);
+    }
+    
+    .filters-form {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+        max-width: 100%;
+    }
+}

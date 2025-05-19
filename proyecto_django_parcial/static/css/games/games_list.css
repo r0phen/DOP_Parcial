@@ -1,0 +1,14 @@
+/* static/css/games/games_list.css */
+/* ESTILOS ESPECÍFICOS DEL GRID */
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: var(--soft-white);
+    border-radius: var(--border-radius);
+    border: 2px solid var(--border-light);
+    box-sizing: border-box;
+    justify-items: center;
+}

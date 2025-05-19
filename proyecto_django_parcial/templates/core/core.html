@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/core/core.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h2>Bienvenido a UrGameList</h2>
+    <p>Explora nuestra colección de juegos gratis, únete a la comunidad y personaliza tu perfil.</p>
+    <a href="{% url 'games:games_list' %}" class="btn">Ver Juegos</a>
+{% endblock %}

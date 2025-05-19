@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Lista de Juegos{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/games/filters.css' %}">
+    <link rel="stylesheet" href="{% static 'css/games/games_list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/games/game.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% include 'games/_filters.html' %}
+    {% include 'games/_games_list.html' %}
+{% endblock %}

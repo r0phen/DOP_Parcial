@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Catálogo de Juegos{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block styles %}
+        <!-- Bloque para estilos específicos -->
+    {% endblock %}
+</head>
+<body>
+    <header class="main-header">
+        <h1>UrGameList</h1>
+        <nav>
+            <a href="{% url 'core:core' %}" class="nav-link">Inicio</a>
+            <a href="{% url 'games:games_list' %}" class="nav-link">Lista de Juegos</a>
+            <a href="{% url 'profiles:profile' %}" class="nav-link">Perfil</a>
+            <a href="{% url 'community:community' %}" class="nav-link">Comunidad</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'auth:logout' %}" class="nav-link">Cerrar Sesión</a>
+            {% else %}
+                <a href="{% url 'auth:login' %}" class="nav-link">Iniciar Sesión</a>
+            {% endif %}
+        </nav>
+    </header>
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="main-footer">
+        <p>© 2025 Tu Empresa. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
