@@ -4,10 +4,22 @@
 {% block title %}Perfil{% endblock %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{% static 'css/profiles/profiles.css' %}">
+<link rel="stylesheet" href="{% static 'css/games/game.css' %}">
+<link rel="stylesheet" href="{% static 'css/games/games_list.css' %}">
 {% endblock %}
 
 {% block content %}
-    <h2>Mi Perfil</h2>
-    <p>Aquí podrás ver y editar tu información de perfil (próximamente).</p>
+<h2>Mi Perfil</h2>
+<p><strong>Nombre:</strong> {{ user.username }}</p>
+<p><strong>Sexo:</strong> {{ user.sex }}</p>
+<p><strong>País:</strong> {{ user.country }}</p>
+
+<h3>Mis Juegos Favoritos</h3>
+<div class="games-grid">
+    {% for game in favorite_games %}
+        {% include 'games/_game_card.html' with game=game show_button=False show_delete=True %}
+    {% empty %}
+        <p>No tienes juegos favoritos todavía.</p>
+    {% endfor %}
+</div>
 {% endblock %}

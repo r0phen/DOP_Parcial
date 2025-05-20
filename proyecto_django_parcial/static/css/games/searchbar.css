@@ -1,0 +1,33 @@
+/* static/css/components/searchbar.css */
+/* Barra de búsqueda alineada con la estética base */
+
+.searchbar-container:focus-within {
+    border-color: var(--accent-orange);
+    box-shadow: 0 0 8px rgba(255, 107, 53, 0.4);
+    transform: translateY(-2px);
+}
+
+.search-input {
+    width: 100%;
+    padding: var(--space-sm) var(--space-md);
+    font-family: var(--cute-font);
+    font-size: var(--text-md);
+    color: var(--text-dark);
+    border: 2px solid var(--border-light);
+    border-radius: var(--border-radius-full);
+    outline: none;
+    transition: var(--transition);
+    box-sizing: border-box;
+}
+
+.search-input::placeholder {
+    color: var(--accent-orange);
+    opacity: 0.7;
+    font-weight: 500;
+}
+
+.search-input:focus {
+    border-color: var(--accent-orange);
+    box-shadow: 0 0 8px rgba(255, 107, 53, 0.4);
+}
+

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ game.title }} - Detalle{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/games/game_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="game-detail">
+    <img src="{{ game.thumbnail }}" alt="{{ game.title }}">
+    <h2>{{ game.title }}</h2>
+    <p><strong>Descripción:</strong> {{ game.description }}</p>
+    <p><strong>Género:</strong> {{ game.genre }}</p>
+    <p><strong>Plataforma:</strong> {{ game.platform }}</p>
+    <p><strong>Editor:</strong> {{ game.publisher }}</p>
+    <p><strong>Fecha de lanzamiento:</strong> {{ game.release_date }}</p>
+
+    {% if is_logged_in %}
+        <form method="POST" action="{% url 'games:add_favorite' game.id %}" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn">Agregar a Favoritos</button>
+        </form>
+    {% else %}
+        <p><a href="{% url 'auth:login' %}">Inicia sesión</a> para agregar este juego a tus favoritos.</p>
+    {% endif %}
+
+    <a href="{% url 'games:games_list' %}" class="btn" style="margin-top: 1rem;">Volver al listado</a>
+</div>
+{% endblock %}

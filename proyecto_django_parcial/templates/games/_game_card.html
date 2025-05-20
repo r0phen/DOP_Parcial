@@ -1,6 +1,22 @@
 <div class="game-card card">
     <img src="{{ game.thumbnail }}" alt="{{ game.title }}">
     <h3>{{ game.title }}</h3>
-    <p>{{ game.short_description|truncatechars:100 }}</p>
-    <a href= "#" class="btn">Ver Juego</a>
+    {% if game.short_description %}
+        <p>{{ game.short_description|truncatechars:100 }}</p>
+    {% elif game.description %}
+        <p>{{ game.description|truncatechars:100 }}</p>
+    {% else %}
+        <p>Descripción no disponible.</p>
+    {% endif %}
+
+    {% if show_button %}
+        <a href="{% url 'games:game_detail' game.game_id|default:game.id %}" class="btn">Ver Juego</a>
+    {% endif %}
+
+    {% if show_delete %}
+        <form method="POST" action="{% url 'games:delete_favorite' game.id %}" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Eliminar Favorito</button>
+        </form>
+    {% endif %}
 </div>

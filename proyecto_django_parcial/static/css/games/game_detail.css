@@ -1,0 +1,57 @@
+/* static/css/game_detail.css */
+
+.game-detail {
+    padding: var(--space-xl);
+    display: grid;
+    gap: var(--space-lg);
+}
+
+.game-detail h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.game-detail h2::before {
+    content: "🎮";
+    font-size: 1.5rem;
+    margin-right: 0.3rem;
+}
+
+.game-detail .card {
+    padding: var(--space-lg);
+}
+
+/* Imagen dentro de una tarjeta con estilo */
+.game-detail .image-wrapper {
+    background-color: var(--card-bg);
+    padding: var(--space-md);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: 2px solid var(--border-light);
+    display: inline-block;
+}
+
+.game-detail img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    display: block;
+}
+
+/* Textos con borde lateral */
+.game-detail p {
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-md);
+    border-left: 4px solid var(--accent-orange);
+    background-color: rgba(255, 107, 53, 0.05);
+    border-radius: var(--border-radius);
+}
+
+.game-detail strong {
+    color: var(--accent-orange);
+}
+
+.game-detail .btn {
+    margin-top: var(--space-lg);
+}

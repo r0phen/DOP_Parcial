@@ -1,0 +1,91 @@
+/* login.css y register.css */
+
+/* Container específico del formulario (reutiliza variables de base.css) */
+.auth-container {
+    max-width: 420px;
+    margin: 4rem auto;
+    background-color: var(--card-bg);
+    padding: var(--space-xl);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: left;
+}
+
+/* Título */
+.auth-container h2 {
+    color: var(--accent-orange);
+    font-weight: 600;
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-lg);
+    text-align: center;
+}
+
+/* Labels */
+.auth-container label {
+    display: block;
+    margin-bottom: var(--space-sm);
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: var(--text-md);
+}
+
+/* Inputs */
+.auth-container input,
+.auth-container select {
+    width: 100%;
+    padding: var(--space-sm);
+    margin-bottom: var(--space-md);
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--border-radius);
+    font-size: var(--text-md);
+    font-family: var(--cute-font);
+    transition: border-color 0.3s ease;
+    outline-offset: 2px;
+}
+
+.auth-container input:focus,
+.auth-container select:focus {
+    border-color: var(--accent-orange);
+    outline: none;
+}
+
+/* Botón */
+.auth-container button {
+    width: 100%;
+    padding: var(--space-md);
+    font-size: var(--text-md);
+    font-weight: 600;
+    color: white;
+    background-color: var(--accent-orange);
+    border: none;
+    border-radius: var(--border-radius-full);
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.25);
+    transition: var(--transition);
+    text-transform: uppercase;
+}
+
+.auth-container button:hover {
+    background-color: var(--accent-hover);
+    box-shadow: 0 6px 16px rgba(229, 86, 39, 0.35);
+    transform: translateY(-3px);
+}
+
+/* Enlace para cambiar entre login/registro */
+.auth-container p {
+    margin-top: var(--space-md);
+    text-align: center;
+    font-size: var(--text-sm);
+}
+
+.auth-container a {
+    color: var(--accent-orange);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.auth-container a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}

@@ -1,0 +1,21 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/games/searchbar.css' %}">
+
+<div class="searchbar-container">
+    <input type="text" id="gameSearchInput" placeholder="Buscar juegos por nombre..." class="search-input">
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const input = document.getElementById('gameSearchInput');
+        input.addEventListener('input', function () {
+            const filter = input.value.toLowerCase();
+            const cards = document.querySelectorAll('.game-card');
+
+            cards.forEach(card => {
+                const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+                card.style.display = title.includes(filter) ? '' : 'none';
+            });
+        });
+    });
+</script>
